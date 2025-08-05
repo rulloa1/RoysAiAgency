@@ -1,4 +1,3 @@
-import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { createClient, type ClientConfig, type SanityClient } from '@sanity/client';
@@ -36,6 +35,7 @@ if (isDev && previewDrafts) {
                 const time = new Date();
                 
                 // update the updatedat stamp for the layout file, triggering astro to refresh the data in getStaticPaths
+                const fs = await import('fs');
                 await fs.promises.utimes(filePath, time, time);
             }
         })
