@@ -1,19 +1,55 @@
-import { client } from '@utils/sanity-client';
-import { IMAGE } from './blocks';
-
-const CONFIG_QUERY_OBJ = `{
-  _id,
-  "favicon": {
-    "src": favicon.asset->url
+// Mock site configuration data
+const mockSiteConfig = {
+  _id: "site-config",
+  favicon: {
+    src: "https://via.placeholder.com/32x32/ffae9c/171227?text=🚀"
   },
-  header {
-    ...,
-    logo ${IMAGE}
+  header: {
+    logo: {
+      src: "https://via.placeholder.com/180x40/171227/ffffff?text=Astro+Starter",
+      alt: "Astro Sanity Starter"
+    },
+    links: [
+      {
+        _key: "home",
+        label: "Home",
+        url: "/"
+      },
+      {
+        _key: "about", 
+        label: "About",
+        url: "#about"
+      },
+      {
+        _key: "features",
+        label: "Features", 
+        url: "#features"
+      },
+      {
+        _key: "contact",
+        label: "Contact",
+        url: "#contact"
+      }
+    ]
   },
-  footer,
-  titleSuffix
-}`;
+  footer: {
+    text: "© 2024 Astro Sanity Starter. Built with ❤️ using modern web technologies.",
+    links: [
+      {
+        _key: "privacy",
+        label: "Privacy Policy",
+        url: "/privacy"
+      },
+      {
+        _key: "terms",
+        label: "Terms of Service", 
+        url: "/terms"
+      }
+    ]
+  },
+  titleSuffix: " | Astro Sanity Starter"
+};
 
 export async function fetchData() {
-    return await client.fetch(`*[_type == "siteConfig"][0] ${CONFIG_QUERY_OBJ}`);
+    return mockSiteConfig;
 }
