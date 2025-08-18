@@ -5,9 +5,15 @@ const mockSiteConfig = {
     src: "https://via.placeholder.com/32x32/ffae9c/171227?text=🚀"
   },
   header: {
+    title: "Astro Starter",
     logo: {
+      _id: "logo-image",
       src: "https://via.placeholder.com/180x40/171227/ffffff?text=Astro+Starter",
-      alt: "Astro Sanity Starter"
+      alt: "Astro Sanity Starter",
+      dimensions: {
+        width: 180,
+        height: 40
+      }
     },
     links: [
       {
