@@ -15,6 +15,35 @@ const mockSiteConfig = {
         height: 40
       }
     },
+    navLinks: [
+      {
+        _type: "actionLink",
+        _key: "home",
+        label: "Home",
+        url: "/"
+      },
+      {
+        _type: "actionLink",
+        _key: "about",
+        label: "About",
+        url: "#about"
+      },
+      {
+        _type: "actionLink",
+        _key: "features",
+        label: "Features",
+        url: "#features"
+      },
+      {
+        _type: "actionLink",
+        _key: "contact",
+        label: "Contact",
+        url: "#contact"
+      }
+    ]
+  },
+  footer: {
+    text: "© 2024 Astro Sanity Starter. Built with ❤️ using modern web technologies.",
     links: [
       {
         _key: "home",
