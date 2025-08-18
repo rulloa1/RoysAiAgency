@@ -22,4 +22,10 @@ if (_id) {
 }
 ---
 
-<Image src={src} width={width} height={height} alt={alt || ''} format={format} class:list={className} {...annotations} />
+{
+    (width && height) ? (
+        <Image src={src} width={width} height={height} alt={alt || ''} format={format} class:list={className} {...annotations} />
+    ) : (
+        <Image src={src} alt={alt || ''} format={format} class:list={className} inferSize={true} {...annotations} />
+    )
+}
