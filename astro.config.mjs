@@ -5,6 +5,9 @@ import { sanityConfig } from './src/utils/sanity-client';
 
 // https://astro.build/config
 export default defineConfig({
+    devToolbar: {
+        enabled: false
+    },
     image: {
         domains: ['cdn.sanity.io']
     },
