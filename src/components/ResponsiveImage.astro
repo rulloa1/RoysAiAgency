@@ -4,8 +4,8 @@ import { Image } from 'astro:assets';
 interface Props {
     _id?: string;
     src: string;
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
     alt?: string;
     class?: string;
     'data-sb-field-path'?: string;
@@ -22,4 +22,10 @@ if (_id) {
 }
 ---
 
-<Image src={src} width={width} height={height} alt={alt || ''} format={format} class:list={className} {...annotations} />
+{
+    (width && height) ? (
+        <Image src={src} width={width} height={height} alt={alt || ''} format={format} class:list={className} {...annotations} />
+    ) : (
+        <Image src={src} alt={alt || ''} format={format} class:list={className} inferSize={true} {...annotations} />
+    )
+}
